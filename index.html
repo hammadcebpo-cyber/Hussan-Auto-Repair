@@ -74,7 +74,7 @@
         "name": "How can I book an appointment?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can submit an appointment request using the form on this page or call us directly at (403) 226-8474. Please note that online requests are confirmed once our team reviews your details and follows up with you."
+          "text": "You can submit an appointment request using the Appointment & Contact form on this page or call us directly at (403) 226-8474. Please note that online requests are confirmed once our team reviews your details and follows up with you."
         }
       },
       {
@@ -106,7 +106,7 @@
         "name": "How can I contact Hussan Auto Repair?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can reach us by phone at (403) 226-8474, by email at hussan.awan@gmail.com, or through the enquiry forms on our website."
+          "text": "You can reach us by phone at (403) 226-8474, by email at hussan.awan@gmail.com, or through the Appointment & Contact form on our website."
         }
       }
     ]
@@ -282,10 +282,13 @@
     .btn-primary {
       background-color: var(--red);
       color: var(--white);
+      box-shadow: 0 8px 20px rgba(230, 57, 53, 0.24);
     }
 
     .btn-primary:hover {
       background-color: var(--red-hover);
+      box-shadow: 0 12px 26px rgba(230, 57, 53, 0.34);
+      transform: translateY(-1px);
     }
 
     .btn-outline-light {
@@ -574,6 +577,9 @@
     .trust-strip {
       background-color: var(--white);
       border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 10px 30px rgba(16, 18, 20, 0.04);
+      position: relative;
+      z-index: 3;
     }
 
     .trust-grid {
@@ -584,8 +590,8 @@
     .trust-item {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      padding: 28px 24px;
+      gap: 15px;
+      padding: 30px 24px;
       border-right: 1px solid var(--border-light);
     }
 
@@ -598,12 +604,24 @@
       border-right: none;
     }
 
-    .trust-icon {
-      width: 24px;
-      height: 24px;
+    .trust-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background-color: rgba(230, 57, 53, 0.08);
       color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
       margin-top: 2px;
+    }
+
+    .trust-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--red);
+      flex-shrink: 0;
     }
 
     .trust-title {
@@ -638,6 +656,7 @@
       overflow: hidden;
       background: linear-gradient(135deg, #202429 0%, #101214 100%);
       min-height: 440px;
+      box-shadow: 0 20px 44px rgba(16, 18, 20, 0.12);
     }
 
     .about-media img {
@@ -724,6 +743,8 @@
     }
 
     .service-card {
+      position: relative;
+      overflow: hidden;
       background-color: var(--white);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
@@ -731,13 +752,30 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 20px;
-      transition: transform 200ms var(--ease), border-color 200ms var(--ease);
+      gap: 22px;
+      transition: transform 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 3px;
+      background-color: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 220ms var(--ease);
     }
 
     .service-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(16, 18, 20, 0.25);
+      transform: translateY(-4px);
+      border-color: rgba(16, 18, 20, 0.22);
+      box-shadow: 0 16px 34px rgba(16, 18, 20, 0.08);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
     }
 
     .service-card-top {
@@ -747,8 +785,8 @@
     }
 
     .service-icon-box {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       border-radius: var(--radius-sm);
       background-color: var(--light-grey);
       color: var(--red);
@@ -791,72 +829,152 @@
       line-height: 1.55;
     }
 
-    /* Why Choose Us Section */
+    /* Why Choose Us Section — Redesigned Architectural Split */
     .why-section {
-      background-color: var(--graphite);
+      background: linear-gradient(180deg, #16191D 0%, #202429 100%);
       color: var(--white);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
     }
 
-    .why-grid {
-      margin-top: 48px;
+    .why-layout {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      grid-template-columns: 0.92fr 1.18fr;
+      gap: 52px;
+      align-items: stretch;
     }
 
-    .why-card {
-      background-color: var(--black);
-      border: 1px solid var(--border-dark);
-      border-radius: var(--radius-md);
-      padding: 28px 24px;
+    .why-intro {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      transition: transform 200ms var(--ease), border-color 200ms var(--ease);
-    }
-
-    .why-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(230, 57, 53, 0.55);
-    }
-
-    .why-accent-bar {
-      width: 36px;
-      height: 3px;
-      background-color: var(--red);
-    }
-
-    .why-top {
-      display: flex;
-      align-items: center;
       justify-content: space-between;
+      gap: 28px;
+    }
+
+    .why-intro-actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
       gap: 12px;
     }
 
+    .why-feature-photo {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-dark);
+      aspect-ratio: 16 / 9;
+      background-color: var(--black);
+    }
+
+    .why-feature-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .why-feature-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(16, 18, 20, 0.55) 0%, rgba(16, 18, 20, 0) 60%);
+      pointer-events: none;
+    }
+
+    .why-matrix {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background-color: var(--black);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .why-cell {
+      position: relative;
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      border-right: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      transition: background-color 220ms var(--ease);
+    }
+
+    .why-cell::before {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      top: 0;
+      height: 2px;
+      background-color: var(--red);
+      opacity: 0;
+      transition: opacity 220ms var(--ease);
+    }
+
+    .why-cell:hover {
+      background-color: #171A1E;
+    }
+
+    .why-cell:hover::before {
+      opacity: 1;
+    }
+
+    .why-cell:nth-child(2n) {
+      border-right: none;
+    }
+
+    .why-cell:nth-last-child(-n+2) {
+      border-bottom: none;
+    }
+
+    .why-cell-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
     .why-num {
-      font-size: 13px;
+      font-size: 32px;
       font-weight: 800;
-      letter-spacing: 0.06em;
+      line-height: 1;
+      letter-spacing: -0.03em;
       color: var(--red);
       font-variant-numeric: tabular-nums;
     }
 
+    .why-icon-frame {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      background-color: var(--graphite);
+      border: 1px solid var(--border-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
     .why-icon {
-      width: 24px;
-      height: 24px;
-      color: #E2E6EA;
+      width: 21px;
+      height: 21px;
     }
 
     .why-title {
       font-size: 16px;
       font-weight: 800;
+      letter-spacing: 0.02em;
       line-height: 1.3;
       color: var(--white);
     }
 
     .why-desc {
+      margin-top: 8px;
       font-size: 14.5px;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--muted-light);
     }
 
@@ -882,27 +1000,52 @@
       border: 1px solid var(--border-light);
       padding: 0;
       text-align: left;
+      box-shadow: 0 8px 22px rgba(16, 18, 20, 0.06);
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 320ms var(--ease);
+      transition: transform 360ms var(--ease);
     }
 
     .gallery-item:hover img {
-      transform: scale(1.04);
+      transform: scale(1.05);
+    }
+
+    .gallery-zoom {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background-color: rgba(16, 18, 20, 0.78);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity 200ms var(--ease), transform 200ms var(--ease);
+    }
+
+    .gallery-item:hover .gallery-zoom,
+    .gallery-item:focus-visible .gallery-zoom {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .gallery-caption {
       position: absolute;
       inset-inline: 0;
       bottom: 0;
-      padding: 36px 18px 16px;
-      background: linear-gradient(to top, rgba(16, 18, 20, 0.9) 0%, rgba(16, 18, 20, 0) 100%);
+      padding: 40px 18px 16px;
+      background: linear-gradient(to top, rgba(16, 18, 20, 0.92) 0%, rgba(16, 18, 20, 0) 100%);
       color: var(--white);
-      font-size: 14px;
+      font-size: 14.5px;
       font-weight: 700;
     }
 
@@ -990,22 +1133,42 @@
       background-color: var(--white);
       border: 1px solid var(--border-light);
       border-radius: var(--radius-md);
-      padding: 32px 26px;
+      padding: 32px 28px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
+      transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+    }
+
+    .process-step:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(16, 18, 20, 0.06);
     }
 
     .process-badge {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--red);
       font-variant-numeric: tabular-nums;
+    }
+
+    .process-num-box {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background-color: var(--red);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      flex-shrink: 0;
     }
 
     .process-badge::after {
@@ -1016,7 +1179,7 @@
     }
 
     .process-title {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: 800;
       color: var(--black);
       line-height: 1.3;
@@ -1076,30 +1239,75 @@
       gap: 14px;
     }
 
-    /* Appointment Section */
-    .appointment-section {
+    /* Unified Appointment & Contact Section */
+    .contact-section {
       background-color: var(--white);
     }
 
-    .appointment-layout {
+    .contact-layout {
       display: grid;
-      grid-template-columns: 0.9fr 1.25fr;
+      grid-template-columns: 0.92fr 1.25fr;
       gap: 52px;
       align-items: start;
     }
 
-    .appointment-info {
+    .contact-info {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    .appointment-checklist {
-      margin-top: 8px;
+    .contact-details {
+      margin-top: 6px;
       display: flex;
       flex-direction: column;
       gap: 14px;
-      padding-top: 20px;
+    }
+
+    .contact-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 20px;
+      background-color: var(--light-grey);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+    }
+
+    .contact-detail-icon {
+      width: 22px;
+      height: 22px;
+      color: var(--red);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-detail-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-dark);
+    }
+
+    .contact-detail-value {
+      margin-top: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--black);
+      display: inline-block;
+    }
+
+    .contact-detail-value:hover {
+      color: var(--red);
+    }
+
+    .appointment-checklist {
+      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 18px;
       border-top: 1px solid var(--border-light);
     }
 
@@ -1107,13 +1315,13 @@
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      font-size: 14.5px;
+      font-size: 14px;
       color: var(--dark-grey);
     }
 
     .appointment-check-item svg {
-      width: 20px;
-      height: 20px;
+      width: 19px;
+      height: 19px;
       color: var(--red);
       flex-shrink: 0;
       margin-top: 2px;
@@ -1124,6 +1332,26 @@
       border: 1px solid var(--border-light);
       border-radius: var(--radius-lg);
       padding: 36px 32px;
+      box-shadow: 0 14px 36px rgba(16, 18, 20, 0.04);
+    }
+
+    .form-card-header {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .form-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1.25;
+    }
+
+    .form-card-subtitle {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted-dark);
     }
 
     .form-grid {
@@ -1152,6 +1380,12 @@
       color: var(--red);
     }
 
+    .form-optional {
+      font-weight: 500;
+      color: var(--muted-dark) !important;
+      font-size: 12px;
+    }
+
     .form-input,
     .form-select,
     .form-textarea {
@@ -1167,7 +1401,7 @@
     }
 
     .form-textarea {
-      min-height: 112px;
+      min-height: 110px;
       resize: vertical;
     }
 
@@ -1319,63 +1553,6 @@
 
     .faq-panel.is-open {
       display: block;
-    }
-
-    /* Contact Section */
-    .contact-section {
-      background-color: var(--white);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.15fr;
-      gap: 52px;
-      align-items: start;
-    }
-
-    .contact-details {
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .contact-detail-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 18px 20px;
-      background-color: var(--light-grey);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-    }
-
-    .contact-detail-icon {
-      width: 22px;
-      height: 22px;
-      color: var(--red);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .contact-detail-label {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted-dark);
-    }
-
-    .contact-detail-value {
-      margin-top: 4px;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--black);
-      display: inline-block;
-    }
-
-    .contact-detail-value:hover {
-      color: var(--red);
     }
 
     /* Google Maps Section */
@@ -1553,9 +1730,13 @@
 
     /* Responsive Breakpoints */
     @media (max-width: 1120px) {
-      .services-grid,
-      .why-grid {
+      .services-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
       }
 
       .trust-grid {
@@ -1595,9 +1776,8 @@
       }
 
       .about-grid,
-      .appointment-layout,
-      .faq-layout,
-      .contact-grid {
+      .contact-layout,
+      .faq-layout {
         grid-template-columns: 1fr;
         gap: 36px;
       }
@@ -1654,7 +1834,8 @@
       }
 
       .hero-actions .btn,
-      .cta-banner-actions .btn {
+      .cta-banner-actions .btn,
+      .why-intro-actions .btn {
         width: 100%;
       }
 
@@ -1674,11 +1855,20 @@
 
       .about-highlights,
       .services-grid,
-      .why-grid,
+      .why-matrix,
       .gallery-grid,
       .form-grid,
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .why-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border-dark);
+      }
+
+      .why-cell:last-child {
+        border-bottom: none;
       }
 
       .form-card {
@@ -1793,9 +1983,11 @@
       <div class="container">
         <div class="trust-grid">
           <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
-            </svg>
+            <div class="trust-icon-wrap" aria-hidden="true">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
             <div>
               <h2 class="trust-title">Automotive Repair Services</h2>
               <p class="trust-desc">Dedicated repair support for everyday mechanical and performance concerns.</p>
@@ -1803,10 +1995,12 @@
           </div>
 
           <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 7v5l3 2"/>
-            </svg>
+            <div class="trust-icon-wrap" aria-hidden="true">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 2"/>
+              </svg>
+            </div>
             <div>
               <h2 class="trust-title">Vehicle Maintenance</h2>
               <p class="trust-desc">Routine maintenance and upkeep focused on keeping your car dependable.</p>
@@ -1814,12 +2008,14 @@
           </div>
 
           <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+            <div class="trust-icon-wrap" aria-hidden="true">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
             <div>
               <h2 class="trust-title">Customer-Focused Service</h2>
               <p class="trust-desc">Clear, straightforward communication about your vehicle's service needs.</p>
@@ -1827,10 +2023,12 @@
           </div>
 
           <div class="trust-item">
-            <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
+            <div class="trust-icon-wrap" aria-hidden="true">
+              <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
             <div>
               <h2 class="trust-title">Convenient Calgary Location</h2>
               <p class="trust-desc">Accessible NE Calgary address at 11124 36 St NE #3050.</p>
@@ -2052,69 +2250,100 @@
       </div>
     </section>
 
-    <!-- 8. Why Choose Hussan Auto Repair -->
+    <!-- 8. Why Choose Hussan Auto Repair (Redesigned Architectural Split) -->
     <section id="why-us" class="section why-section">
       <div class="container">
-        <div class="section-kicker">Why Choose Hussan Auto Repair</div>
-        <h2 class="section-title section-title--light">MORE THAN AUTO REPAIR. IT'S ABOUT PEACE OF MIND.</h2>
-        <p class="section-lead section-lead--light">
-          Every vehicle visit starts with listening carefully and giving you clear, practical information about your car.
-        </p>
-
-        <div class="why-grid">
-          <div class="why-card reveal">
-            <div class="why-accent-bar" aria-hidden="true"></div>
-            <div class="why-top">
-              <span class="why-num">01.</span>
-              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
+        <div class="why-layout">
+          <div class="why-intro reveal">
+            <div>
+              <div class="section-kicker">Why Choose Hussan Auto Repair</div>
+              <h2 class="section-title section-title--light">MORE THAN AUTO REPAIR. IT'S ABOUT PEACE OF MIND.</h2>
+              <p class="section-lead section-lead--light">
+                Every visit begins with listening closely to what your vehicle needs and giving you honest, straightforward clarity before moving forward.
+              </p>
+              <div class="why-intro-actions">
+                <a href="#appointment" class="btn btn-primary">BOOK YOUR APPOINTMENT</a>
+                <a href="tel:+14032268474" class="btn btn-outline-light">CALL (403) 226-8474</a>
+              </div>
             </div>
-            <h3 class="why-title">CUSTOMER-FOCUSED SERVICE</h3>
-            <p class="why-desc">We take the time to understand your vehicle concerns and service requirements.</p>
+
+            <div class="why-feature-photo">
+              <img
+                src="./src/assets/images/gallery_modern_workshop_1794590992703.jpg"
+                alt="Illustrative modern automotive service workshop bays with lifts and organized tools"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+            </div>
           </div>
 
-          <div class="why-card reveal">
-            <div class="why-accent-bar" aria-hidden="true"></div>
-            <div class="why-top">
-              <span class="why-num">02.</span>
-              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
+          <div class="why-matrix reveal">
+            <div class="why-cell">
+              <div class="why-cell-head">
+                <span class="why-num">01</span>
+                <div class="why-icon-frame" aria-hidden="true">
+                  <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="why-title">CUSTOMER-FOCUSED SERVICE</h3>
+                <p class="why-desc">We take the time to understand your vehicle concerns and service requirements.</p>
+              </div>
             </div>
-            <h3 class="why-title">CLEAR COMMUNICATION</h3>
-            <p class="why-desc">Understand the repair concerns and discuss the next steps.</p>
-          </div>
 
-          <div class="why-card reveal">
-            <div class="why-accent-bar" aria-hidden="true"></div>
-            <div class="why-top">
-              <span class="why-num">03.</span>
-              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
-                <circle cx="7" cy="17" r="2"/>
-                <path d="M9 17h6"/>
-                <circle cx="17" cy="17" r="2"/>
-              </svg>
+            <div class="why-cell">
+              <div class="why-cell-head">
+                <span class="why-num">02</span>
+                <div class="why-icon-frame" aria-hidden="true">
+                  <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="why-title">CLEAR COMMUNICATION</h3>
+                <p class="why-desc">Understand the repair concerns and discuss the next steps.</p>
+              </div>
             </div>
-            <h3 class="why-title">VEHICLE CARE</h3>
-            <p class="why-desc">Keep your vehicle's maintenance and repair needs a priority.</p>
-          </div>
 
-          <div class="why-card reveal">
-            <div class="why-accent-bar" aria-hidden="true"></div>
-            <div class="why-top">
-              <span class="why-num">04.</span>
-              <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
+            <div class="why-cell">
+              <div class="why-cell-head">
+                <span class="why-num">03</span>
+                <div class="why-icon-frame" aria-hidden="true">
+                  <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
+                    <circle cx="7" cy="17" r="2"/>
+                    <path d="M9 17h6"/>
+                    <circle cx="17" cy="17" r="2"/>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="why-title">VEHICLE CARE</h3>
+                <p class="why-desc">Keep your vehicle's maintenance and repair needs a priority.</p>
+              </div>
             </div>
-            <h3 class="why-title">LOCAL CALGARY LOCATION</h3>
-            <p class="why-desc">Conveniently located at 11124 36 St NE #3050, Calgary.</p>
+
+            <div class="why-cell">
+              <div class="why-cell-head">
+                <span class="why-num">04</span>
+                <div class="why-icon-frame" aria-hidden="true">
+                  <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="why-title">LOCAL CALGARY LOCATION</h3>
+                <p class="why-desc">Conveniently located at 11124 36 St NE #3050, Calgary.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2132,31 +2361,49 @@
         <div class="gallery-grid">
           <button type="button" class="gallery-item reveal" data-lightbox-src="./src/assets/images/gallery_vehicle_inspection_1794590991457.jpg" data-lightbox-caption="Professional vehicle inspection on a hydraulic lift">
             <img src="./src/assets/images/gallery_vehicle_inspection_1794590991457.jpg" alt="Technician performing an undercarriage vehicle inspection on a hydraulic lift" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="gallery-zoom" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </span>
             <span class="gallery-caption">Professional Vehicle Inspection</span>
           </button>
 
           <button type="button" class="gallery-item reveal" data-lightbox-src="./src/assets/images/gallery_hood_work_1794590991475.jpg" data-lightbox-caption="Mechanic working carefully under a vehicle hood">
             <img src="./src/assets/images/gallery_hood_work_1794590991475.jpg" alt="Gloved mechanic working under an open vehicle hood using precision hand tools" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="gallery-zoom" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </span>
             <span class="gallery-caption">Under-Hood Mechanical Service</span>
           </button>
 
           <button type="button" class="gallery-item reveal" data-lightbox-src="./src/assets/images/gallery_diagnostic_scanner_1794590991545.jpg" data-lightbox-caption="Automotive diagnostic equipment analyzing vehicle telemetry">
             <img src="./src/assets/images/gallery_diagnostic_scanner_1794590991545.jpg" alt="Automotive diagnostic tablet displaying live engine telemetry inside a vehicle cabin" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="gallery-zoom" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </span>
             <span class="gallery-caption">Automotive Diagnostic Equipment</span>
           </button>
 
           <button type="button" class="gallery-item reveal" data-lightbox-src="./src/assets/images/gallery_brake_service_1794590992051.jpg" data-lightbox-caption="Close-up disc brake rotor and caliper inspection">
             <img src="./src/assets/images/gallery_brake_service_1794590992051.jpg" alt="Close-up of a vented disc brake rotor and caliper during workshop brake inspection" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="gallery-zoom" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </span>
             <span class="gallery-caption">Brake Inspection</span>
           </button>
 
           <button type="button" class="gallery-item reveal" data-lightbox-src="./src/assets/images/gallery_modern_workshop_1794590992703.jpg" data-lightbox-caption="Clean, organized modern automotive service workshop">
             <img src="./src/assets/images/gallery_modern_workshop_1794590992703.jpg" alt="Modern automotive service workshop with clean epoxy floors and organized repair bays" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="gallery-zoom" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </span>
             <span class="gallery-caption">Modern Automotive Service Workshop</span>
           </button>
 
           <button type="button" class="gallery-item reveal" data-lightbox-src="./src/assets/images/cta_luxury_garage_1794590993217.jpg" data-lightbox-caption="Luxury performance vehicle inside a service garage">
             <img src="./src/assets/images/cta_luxury_garage_1794590993217.jpg" alt="Sleek black luxury performance coupe parked inside a modern repair garage" loading="lazy" referrerpolicy="no-referrer" />
+            <span class="gallery-zoom" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+            </span>
             <span class="gallery-caption">Luxury Vehicle Service Care</span>
           </button>
         </div>
@@ -2175,19 +2422,28 @@
 
         <div class="process-grid">
           <div class="process-step reveal">
-            <div class="process-badge">STEP 01</div>
+            <div class="process-badge">
+              <span class="process-num-box">01</span>
+              <span>STEP 01</span>
+            </div>
             <h3 class="process-title">BOOK YOUR VISIT</h3>
             <p class="process-desc">Contact Hussan Auto Repair and explain your vehicle's service requirements.</p>
           </div>
 
           <div class="process-step reveal">
-            <div class="process-badge">STEP 02</div>
+            <div class="process-badge">
+              <span class="process-num-box">02</span>
+              <span>STEP 02</span>
+            </div>
             <h3 class="process-title">DISCUSS YOUR VEHICLE</h3>
             <p class="process-desc">Tell us about the vehicle, its symptoms, and the service you need.</p>
           </div>
 
           <div class="process-step reveal">
-            <div class="process-badge">STEP 03</div>
+            <div class="process-badge">
+              <span class="process-num-box">03</span>
+              <span>STEP 03</span>
+            </div>
             <h3 class="process-title">MOVE FORWARD WITH CONFIDENCE</h3>
             <p class="process-desc">Discuss the repair recommendations and the next steps for your vehicle.</p>
           </div>
@@ -2221,29 +2477,64 @@
       </div>
     </section>
 
-    <!-- 12. Appointment Booking Section -->
-    <section id="appointment" class="section appointment-section">
+    <!-- 12. Unified Appointment & Contact Us Section -->
+    <section id="contact" class="section contact-section">
+      <div id="appointment" aria-hidden="true"></div>
       <div class="container">
-        <div class="appointment-layout">
-          <div class="appointment-info">
-            <div class="section-kicker">Appointment Enquiry</div>
-            <h2 class="section-title">REQUEST YOUR SERVICE APPOINTMENT.</h2>
-            <p class="section-lead">
-              Share your vehicle details and preferred appointment date. Submitting this form prepares a prefilled email to Hussan Auto Repair so we can review your request and follow up.
-            </p>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <div>
+              <div class="section-kicker">Book &amp; Contact Hussan Auto Repair</div>
+              <h2 class="section-title">LET'S GET YOUR VEHICLE BACK ON TRACK.</h2>
+              <p class="section-lead">
+                Reach out directly by phone or email, or submit your vehicle and appointment details using the single form to request a visit or ask a service question.
+              </p>
+            </div>
+
+            <div class="contact-details">
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <div>
+                  <div class="contact-detail-label">Phone</div>
+                  <a href="tel:+14032268474" class="contact-detail-value">(403) 226-8474</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <div>
+                  <div class="contact-detail-label">Email</div>
+                  <a href="mailto:hussan.awan@gmail.com" class="contact-detail-value">hussan.awan@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-row">
+                <svg class="contact-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <div>
+                  <div class="contact-detail-label">Address</div>
+                  <div class="contact-detail-value" style="font-weight:700;">
+                    11124 36 St NE #3050<br />
+                    Calgary, AB T3N 1L3<br />
+                    Canada
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="appointment-checklist">
               <div class="appointment-check-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
-                <span>Direct enquiry sent to <strong>hussan.awan@gmail.com</strong> via your email app.</span>
-              </div>
-              <div class="appointment-check-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                <span>Prefer to speak directly? Call <a href="tel:+14032268474" style="font-weight:700; color:#E63935;">(403) 226-8474</a> to discuss your vehicle.</span>
+                <span>Prepares a direct enquiry email to <strong>hussan.awan@gmail.com</strong> with all your details.</span>
               </div>
               <div class="appointment-check-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -2251,12 +2542,17 @@
                   <line x1="12" y1="8" x2="12" y2="12"/>
                   <line x1="12" y1="16" x2="12.01" y2="16"/>
                 </svg>
-                <span>Requests are not confirmed until Hussan Auto Repair responds to confirm availability.</span>
+                <span>Please note: requests are not confirmed until Hussan Auto Repair responds to confirm availability.</span>
               </div>
             </div>
           </div>
 
           <div class="form-card">
+            <div class="form-card-header">
+              <h3 class="form-card-title">Request an Appointment or Send an Enquiry</h3>
+              <p class="form-card-subtitle">Complete the fields below to open a prefilled email to Hussan Auto Repair.</p>
+            </div>
+
             <form id="appointmentForm" novalidate>
               <div class="form-grid">
                 <div class="form-field">
@@ -2296,9 +2592,8 @@
                 </div>
 
                 <div class="form-field">
-                  <label class="form-label" for="apptDate">Preferred Appointment Date <span aria-hidden="true">*</span></label>
-                  <input class="form-input" type="date" id="apptDate" name="preferredDate" required />
-                  <span class="field-error" id="err-apptDate">Please select a preferred appointment date.</span>
+                  <label class="form-label" for="apptDate">Preferred Appointment Date <span class="form-optional">(Optional)</span></label>
+                  <input class="form-input" type="date" id="apptDate" name="preferredDate" />
                 </div>
 
                 <div class="form-field form-field--full">
@@ -2319,13 +2614,13 @@
                 </div>
 
                 <div class="form-field form-field--full">
-                  <label class="form-label" for="apptInfo">Additional Information</label>
-                  <textarea class="form-textarea" id="apptInfo" name="additionalInfo" placeholder="Describe any warning lights, sounds, handling concerns, or preferred time of day..."></textarea>
+                  <label class="form-label" for="apptInfo">Additional Information / Message</label>
+                  <textarea class="form-textarea" id="apptInfo" name="additionalInfo" placeholder="Describe any warning lights, symptoms, questions, or preferred time of day..."></textarea>
                 </div>
               </div>
 
               <p class="form-disclaimer">
-                Important: This form opens your email client with a prefilled request to hussan.awan@gmail.com. Submitting this request is not a confirmed appointment until Hussan Auto Repair responds to confirm availability.
+                Important: Submitting this form opens your email client with a prefilled message to hussan.awan@gmail.com. It is not a confirmed appointment until Hussan Auto Repair responds.
               </p>
 
               <div class="form-submit-row">
@@ -2337,10 +2632,10 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12"/>
                   </svg>
-                  <span>Appointment Request Prepared</span>
+                  <span>Request Email Prepared</span>
                 </div>
                 <p class="form-feedback-text">
-                  Your email application should open with your prefilled appointment details addressed to <strong>hussan.awan@gmail.com</strong>. Please send that email to complete your request. Remember: your appointment is not confirmed until our shop responds.
+                  Your email application should open with your prefilled details addressed to <strong>hussan.awan@gmail.com</strong>. Please press send in your email app to deliver your request. Your appointment is not confirmed until our shop responds.
                 </p>
                 <div class="form-feedback-actions">
                   <a id="apptMailtoLink" href="mailto:hussan.awan@gmail.com" class="btn btn-dark" style="min-height:40px; padding:8px 16px; font-size:12.5px;">OPEN EMAIL APP AGAIN</a>
@@ -2388,7 +2683,7 @@
                 </svg>
               </button>
               <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
-                You can fill out the Appointment Request form on this website to send your vehicle details and preferred date by email, or call us directly at (403) 226-8474. Please note that an online request is not confirmed until our team responds to confirm availability.
+                You can fill out the Appointment &amp; Contact form on this website to send your vehicle details and preferred date by email, or call us directly at (403) 226-8474. Please note that an online request is not confirmed until our team responds to confirm availability.
               </div>
             </div>
 
@@ -2440,129 +2735,9 @@
                 </svg>
               </button>
               <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6">
-                You can reach Hussan Auto Repair by calling (403) 226-8474, emailing hussan.awan@gmail.com, or submitting either the Appointment Request or Contact Enquiry form on this page.
+                You can reach Hussan Auto Repair by calling (403) 226-8474, emailing hussan.awan@gmail.com, or submitting the Appointment &amp; Contact form on this page.
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 14. Contact Us Section -->
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <div class="contact-grid">
-          <div>
-            <div class="section-kicker">Contact Hussan Auto Repair</div>
-            <h2 class="section-title">LET'S GET YOUR VEHICLE BACK ON TRACK.</h2>
-            <p class="section-lead">
-              Have a question about a repair concern or maintenance service? Reach out directly by phone, email, or send an enquiry using the form.
-            </p>
-
-            <div class="contact-details">
-              <div class="contact-detail-row">
-                <svg class="contact-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                <div>
-                  <div class="contact-detail-label">Phone</div>
-                  <a href="tel:+14032268474" class="contact-detail-value">(403) 226-8474</a>
-                </div>
-              </div>
-
-              <div class="contact-detail-row">
-                <svg class="contact-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect width="20" height="16" x="2" y="4" rx="2"/>
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                </svg>
-                <div>
-                  <div class="contact-detail-label">Email</div>
-                  <a href="mailto:hussan.awan@gmail.com" class="contact-detail-value">hussan.awan@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="contact-detail-row">
-                <svg class="contact-detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-                <div>
-                  <div class="contact-detail-label">Address</div>
-                  <div class="contact-detail-value" style="font-weight:700;">
-                    11124 36 St NE #3050<br />
-                    Calgary, AB T3N 1L3<br />
-                    Canada
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-card">
-            <form id="contactForm" novalidate>
-              <div class="form-grid">
-                <div class="form-field">
-                  <label class="form-label" for="contactName">Name <span aria-hidden="true">*</span></label>
-                  <input class="form-input" type="text" id="contactName" name="name" placeholder="Your name" required autocomplete="name" />
-                  <span class="field-error" id="err-contactName">Please enter your name.</span>
-                </div>
-
-                <div class="form-field">
-                  <label class="form-label" for="contactPhone">Phone <span aria-hidden="true">*</span></label>
-                  <input class="form-input" type="tel" id="contactPhone" name="phone" placeholder="(403) 555-0199" required autocomplete="tel" />
-                  <span class="field-error" id="err-contactPhone">Please enter a valid phone number.</span>
-                </div>
-
-                <div class="form-field form-field--full">
-                  <label class="form-label" for="contactEmail">Email <span aria-hidden="true">*</span></label>
-                  <input class="form-input" type="email" id="contactEmail" name="email" placeholder="you@example.com" required autocomplete="email" />
-                  <span class="field-error" id="err-contactEmail">Please enter a valid email address.</span>
-                </div>
-
-                <div class="form-field form-field--full">
-                  <label class="form-label" for="contactService">Service Required <span aria-hidden="true">*</span></label>
-                  <select class="form-select" id="contactService" name="service" required>
-                    <option value="">Select a service category...</option>
-                    <option value="General Auto Repair">General Auto Repair</option>
-                    <option value="Engine Diagnostics">Engine Diagnostics</option>
-                    <option value="Brake Service">Brake Service</option>
-                    <option value="Oil Change & Maintenance">Oil Change &amp; Maintenance</option>
-                    <option value="Transmission Service">Transmission Service</option>
-                    <option value="Suspension & Steering">Suspension &amp; Steering</option>
-                    <option value="Battery & Electrical">Battery &amp; Electrical</option>
-                    <option value="Preventive Maintenance">Preventive Maintenance</option>
-                    <option value="General Enquiry">General Enquiry</option>
-                  </select>
-                  <span class="field-error" id="err-contactService">Please select a service category.</span>
-                </div>
-
-                <div class="form-field form-field--full">
-                  <label class="form-label" for="contactMessage">Message <span aria-hidden="true">*</span></label>
-                  <textarea class="form-textarea" id="contactMessage" name="message" placeholder="Tell us about your vehicle and how we can help..." required></textarea>
-                  <span class="field-error" id="err-contactMessage">Please enter a short message about your enquiry.</span>
-                </div>
-              </div>
-
-              <div class="form-submit-row">
-                <button type="submit" class="btn btn-primary">SEND YOUR ENQUIRY</button>
-              </div>
-
-              <div class="form-feedback" id="contactFeedback" role="status" aria-live="polite">
-                <div class="form-feedback-title">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  <span>Enquiry Email Prepared</span>
-                </div>
-                <p class="form-feedback-text">
-                  Your email client should open with your enquiry prefilled to <strong>hussan.awan@gmail.com</strong>. Please press send in your email app to deliver your message.
-                </p>
-                <div class="form-feedback-actions">
-                  <a id="contactMailtoLink" href="mailto:hussan.awan@gmail.com" class="btn btn-dark" style="min-height:40px; padding:8px 16px; font-size:12.5px;">OPEN EMAIL APP AGAIN</a>
-                  <button type="button" id="contactCopyBtn" class="btn btn-outline-dark" style="min-height:40px; padding:8px 16px; font-size:12.5px;">COPY ENQUIRY DETAILS</button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
       </div>
@@ -2789,23 +2964,16 @@
         });
       }
 
-      // 5. Service Card Pre-selection into Contact & Appointment Forms
+      // 5. Service Card Pre-selection into Unified Appointment & Contact Form
       var serviceButtons = document.querySelectorAll('[data-select-service]');
-      var contactServiceSelect = document.getElementById('contactService');
       var apptServiceSelect = document.getElementById('apptService');
 
       serviceButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
           var serviceName = btn.getAttribute('data-select-service');
-          if (!serviceName) return;
-          if (contactServiceSelect) {
-            contactServiceSelect.value = serviceName;
-            clearFieldError(contactServiceSelect, 'err-contactService');
-          }
-          if (apptServiceSelect) {
-            apptServiceSelect.value = serviceName;
-            clearFieldError(apptServiceSelect, 'err-apptService');
-          }
+          if (!serviceName || !apptServiceSelect) return;
+          apptServiceSelect.value = serviceName;
+          clearFieldError(apptServiceSelect, 'err-apptService');
         });
       });
 
@@ -2866,7 +3034,6 @@
           var panelId = trigger.getAttribute('aria-controls');
           var panel = panelId ? document.getElementById(panelId) : null;
 
-          // Close all items first for clean single-open accordion
           faqTriggers.forEach(function (other) {
             var otherId = other.getAttribute('aria-controls');
             var otherPanel = otherId ? document.getElementById(otherId) : null;
@@ -2913,7 +3080,7 @@
         }).catch(function () {});
       }
 
-      // Appointment Form Submission
+      // Unified Appointment & Contact Form Submission
       var appointmentForm = document.getElementById('appointmentForm');
       var lastApptBody = '';
 
@@ -2932,7 +3099,6 @@
               return Number.isInteger(n) && n >= 1950 && n <= 2028;
             }
           },
-          { id: 'apptDate', err: 'err-apptDate', check: function (v) { return v.trim().length > 0; } },
           { id: 'apptService', err: 'err-apptService', check: function (v) { return v.trim().length > 0; } }
         ];
 
@@ -2970,21 +3136,21 @@
           var make = document.getElementById('apptMake').value.trim();
           var model = document.getElementById('apptModel').value.trim();
           var year = document.getElementById('apptYear').value.trim();
-          var date = document.getElementById('apptDate').value.trim();
+          var date = document.getElementById('apptDate').value.trim() || 'Flexible / Not specified';
           var service = document.getElementById('apptService').value.trim();
           var info = document.getElementById('apptInfo').value.trim() || 'None provided';
 
-          var subject = 'Appointment Request - ' + year + ' ' + make + ' ' + model + ' (' + service + ')';
+          var subject = 'Appointment / Service Request - ' + year + ' ' + make + ' ' + model + ' (' + service + ')';
           lastApptBody = [
-            'Appointment Request for Hussan Auto Repair',
-            '------------------------------------------',
+            'Appointment & Service Request for Hussan Auto Repair',
+            '----------------------------------------------------',
             'Full Name: ' + fullName,
             'Phone Number: ' + phone,
             'Email Address: ' + email,
             'Vehicle: ' + year + ' ' + make + ' ' + model,
             'Service Required: ' + service,
             'Preferred Appointment Date: ' + date,
-            'Additional Information: ' + info,
+            'Additional Information / Message: ' + info,
             '',
             'Note: Submitted as a request; awaiting shop confirmation.'
           ].join('\n');
@@ -3005,84 +3171,6 @@
         if (apptCopyBtn) {
           apptCopyBtn.addEventListener('click', function () {
             if (lastApptBody) copyToClipboard(lastApptBody, apptCopyBtn);
-          });
-        }
-      }
-
-      // Contact Form Submission
-      var contactForm = document.getElementById('contactForm');
-      var lastContactBody = '';
-
-      if (contactForm) {
-        var contactFields = [
-          { id: 'contactName', err: 'err-contactName', check: function (v) { return v.trim().length >= 2; } },
-          { id: 'contactPhone', err: 'err-contactPhone', check: isValidPhone },
-          { id: 'contactEmail', err: 'err-contactEmail', check: isValidEmail },
-          { id: 'contactService', err: 'err-contactService', check: function (v) { return v.trim().length > 0; } },
-          { id: 'contactMessage', err: 'err-contactMessage', check: function (v) { return v.trim().length >= 5; } }
-        ];
-
-        contactFields.forEach(function (f) {
-          var el = document.getElementById(f.id);
-          if (!el) return;
-          el.addEventListener('input', function () {
-            if (f.check(el.value)) clearFieldError(el, f.err);
-          });
-          el.addEventListener('change', function () {
-            if (f.check(el.value)) clearFieldError(el, f.err);
-          });
-        });
-
-        contactForm.addEventListener('submit', function (e) {
-          e.preventDefault();
-          var firstInvalid = null;
-
-          contactFields.forEach(function (f) {
-            var el = document.getElementById(f.id);
-            if (!el) return;
-            var ok = f.check(el.value);
-            setFieldError(el, f.err, !ok);
-            if (!ok && !firstInvalid) firstInvalid = el;
-          });
-
-          if (firstInvalid) {
-            firstInvalid.focus();
-            return;
-          }
-
-          var name = document.getElementById('contactName').value.trim();
-          var phone = document.getElementById('contactPhone').value.trim();
-          var email = document.getElementById('contactEmail').value.trim();
-          var service = document.getElementById('contactService').value.trim();
-          var message = document.getElementById('contactMessage').value.trim();
-
-          var subject = 'Service Enquiry - ' + service + ' (' + name + ')';
-          lastContactBody = [
-            'Service Enquiry for Hussan Auto Repair',
-            '--------------------------------------',
-            'Name: ' + name,
-            'Phone: ' + phone,
-            'Email: ' + email,
-            'Service Required: ' + service,
-            'Message: ' + message
-          ].join('\n');
-
-          var mailtoHref = 'mailto:' + SHOP_EMAIL +
-            '?subject=' + encodeURIComponent(subject) +
-            '&body=' + encodeURIComponent(lastContactBody);
-
-          var mailtoLink = document.getElementById('contactMailtoLink');
-          var feedback = document.getElementById('contactFeedback');
-          if (mailtoLink) mailtoLink.setAttribute('href', mailtoHref);
-          if (feedback) feedback.classList.add('is-visible');
-
-          window.location.href = mailtoHref;
-        });
-
-        var contactCopyBtn = document.getElementById('contactCopyBtn');
-        if (contactCopyBtn) {
-          contactCopyBtn.addEventListener('click', function () {
-            if (lastContactBody) copyToClipboard(lastContactBody, contactCopyBtn);
           });
         }
       }
