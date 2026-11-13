@@ -1,0 +1,6 @@
+{
+  "name": "Hussan Auto Repair",
+  "description": "Automotive repair and vehicle maintenance website for Hussan Auto Repair in Calgary, Alberta.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
